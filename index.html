@@ -2,1088 +2,790 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sanaul Haque Omar | Student & Web Developer</title>
 
     <meta name="description"
-          content="Sanaul Haque Omar is a student, professional programmer and web developer from Gazipur, Dhaka, Bangladesh.">
-
-    <meta name="keywords"
-          content="Sanaul Haque Omar, Omar, Programmer, Web Developer, Student, Gazipur, Bangladesh">
+          content="Official personal website of Sanaul Haque Omar, a student, programmer and web developer from Bangladesh.">
 
     <meta name="author" content="Sanaul Haque Omar">
-
     <meta name="robots" content="index, follow">
 
-
-    <!-- Open Graph / Social Preview -->
-
-    <meta property="og:title"
-          content="Sanaul Haque Omar | Student & Web Developer">
-
-    <meta property="og:description"
-          content="Official personal website of Sanaul Haque Omar.">
-
+    <meta property="og:title" content="Sanaul Haque Omar | Student & Web Developer">
+    <meta property="og:description" content="Official personal website of Sanaul Haque Omar.">
     <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://mastemind234385.github.io/">
 
+    <link rel="canonical" href="https://mastemind234385.github.io/">
 
-    <!-- Person Structured Data -->
-
+    <!-- Person structured data -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Sanaul Haque Omar",
-        "jobTitle": "Student",
-        "description": "Professional Programmer and Web Developer",
-        "birthDate": "--12-19",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Gazipur",
-            "addressRegion": "Dhaka",
-            "addressCountry": "BD"
-        },
-        "sameAs": [
-            "https://facebook.com/",
-            "https://instagram.com/do_x_die",
-            "https://github.com/Master_x_Mind",
-            "https://linkedin.com/in/Master_x_Mind"
-        ]
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sanaul Haque Omar",
+      "jobTitle": "Student",
+      "description": "Student, programmer and web developer from Bangladesh.",
+      "birthDate": "--12-19",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gazipur",
+        "addressRegion": "Dhaka",
+        "addressCountry": "BD"
+      },
+      "url": "https://mastemind234385.github.io/",
+      "sameAs": [
+        "https://www.facebook.com/doo.x.diee",
+        "https://www.instagram.com/do_x_die",
+        "https://github.com/Master_x_Mind"
+      ]
     }
     </script>
 
-
     <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #030712;
+            --bg-soft: #071326;
+            --card: rgba(15, 29, 52, 0.72);
+            --blue: #2f8cff;
+            --blue-light: #69b7ff;
+            --text: #f8fafc;
+            --muted: #9aa9bd;
+            --border: rgba(96, 165, 250, 0.18);
+            --purple: #a855f7;
+            --cyan: #22d3ee;
+        }
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
             font-family: Arial, Helvetica, sans-serif;
-
-            background: #070b14;
-
-            color: #ffffff;
-
+            background:
+                radial-gradient(circle at 15% 10%, rgba(37, 99, 235, 0.16), transparent 30%),
+                radial-gradient(circle at 85% 25%, rgba(124, 58, 237, 0.12), transparent 28%),
+                linear-gradient(135deg, #020617, #061126 55%, #020617);
+            color: var(--text);
             line-height: 1.6;
-
             overflow-x: hidden;
         }
 
-
-        /* =========================
-           BACKGROUND EFFECT
-        ========================= */
-
         body::before {
             content: "";
-
             position: fixed;
-
-            width: 450px;
-            height: 450px;
-
-            background: #2563eb;
-
-            filter: blur(180px);
-
-            opacity: 0.18;
-
-            top: -150px;
-            left: -100px;
-
-            z-index: -1;
-
+            width: 420px;
+            height: 420px;
+            left: -180px;
+            top: 120px;
+            background: rgba(37, 99, 235, 0.18);
+            filter: blur(130px);
             pointer-events: none;
+            z-index: -1;
         }
-
 
         body::after {
             content: "";
-
             position: fixed;
-
-            width: 400px;
-            height: 400px;
-
-            background: #7c3aed;
-
-            filter: blur(180px);
-
-            opacity: 0.15;
-
-            bottom: -150px;
-            right: -100px;
-
-            z-index: -1;
-
+            width: 420px;
+            height: 420px;
+            right: -180px;
+            bottom: 80px;
+            background: rgba(168, 85, 247, 0.13);
+            filter: blur(140px);
             pointer-events: none;
+            z-index: -1;
         }
 
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
+        /* Navigation */
         nav {
             position: fixed;
-
             top: 0;
             left: 0;
-
             width: 100%;
-
             z-index: 1000;
-
-            background: rgba(7, 11, 20, 0.78);
-
-            backdrop-filter: blur(15px);
-
-            -webkit-backdrop-filter: blur(15px);
-
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(2, 6, 23, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
         }
-
 
         .nav-container {
-            max-width: 1100px;
-
+            max-width: 1120px;
             margin: auto;
-
+            padding: 17px 25px;
             display: flex;
-
-            justify-content: space-between;
-
             align-items: center;
-
-            padding: 18px 25px;
+            justify-content: space-between;
         }
-
 
         .logo {
-            font-size: 21px;
-
-            font-weight: bold;
-
-            letter-spacing: 0.5px;
+            color: #e8f3ff;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 0.2px;
         }
-
 
         .logo span {
-            color: #60a5fa;
+            color: var(--blue-light);
         }
-
 
         nav ul {
-            display: flex;
-
             list-style: none;
-
-            gap: 25px;
+            display: flex;
+            gap: 28px;
         }
-
 
         nav a {
             color: #cbd5e1;
-
             text-decoration: none;
-
             font-size: 14px;
-
-            transition: 0.3s;
+            transition: 0.25s;
         }
-
 
         nav a:hover {
-            color: #60a5fa;
+            color: var(--blue-light);
         }
 
-
-        /* =========================
-           HERO
-        ========================= */
-
+        /* Hero */
         .hero {
             min-height: 100vh;
-
-            max-width: 1100px;
-
+            max-width: 1120px;
             margin: auto;
-
-            padding: 140px 25px 80px;
-
+            padding: 125px 25px 75px;
             display: flex;
-
             align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
         }
 
-
-        .hero-content {
+        .hero-grid {
             width: 100%;
-
-            max-width: 850px;
-
-            margin: auto;
-        }
-
-
-        /* =========================
-           PROFILE IMAGE
-        ========================= */
-
-        .profile-image {
-            display: block;
-
-            width: 180px;
-
-            height: 180px;
-
-            margin: 0 auto 30px auto;
-
-            border-radius: 50%;
-
-            object-fit: cover;
-
-            object-position: center;
-
-            border: 5px solid #60a5fa;
-
-            box-shadow:
-                0 0 25px rgba(96,165,250,0.35),
-                0 0 60px rgba(96,165,250,0.15);
-
-            background: #111827;
-
-            transition: 0.3s ease;
-        }
-
-
-        .profile-image:hover {
-            transform: scale(1.05);
-
-            box-shadow:
-                0 0 35px rgba(96,165,250,0.5),
-                0 0 80px rgba(96,165,250,0.2);
-        }
-
-
-        /* =========================
-           HERO TEXT
-        ========================= */
-
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 72px);
-
-            line-height: 1.1;
-
-            margin-bottom: 18px;
-
-            font-weight: 800;
-
-            letter-spacing: -1px;
-        }
-
-
-        .hero h1 span {
-            color: #60a5fa;
-        }
-
-
-        .hero-subtitle {
-            font-size: 20px;
-
-            color: #94a3b8;
-
-            margin-bottom: 12px;
-        }
-
-
-        .location {
-            color: #64748b;
-
-            margin-bottom: 32px;
-
-            font-size: 16px;
-        }
-
-
-        /* =========================
-           BUTTONS
-        ========================= */
-
-        .buttons {
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .btn {
-            display: inline-block;
-
-            padding: 13px 25px;
-
-            border-radius: 10px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            transition: 0.3s ease;
-        }
-
-
-        .btn-primary {
-            background: #2563eb;
-
-            color: white;
-
-            box-shadow: 0 8px 25px rgba(37,99,235,0.25);
-        }
-
-
-        .btn-primary:hover {
-            background: #1d4ed8;
-
-            transform: translateY(-3px);
-        }
-
-
-        .btn-secondary {
-            border: 1px solid #334155;
-
-            color: white;
-
-            background: rgba(15,23,42,0.35);
-        }
-
-
-        .btn-secondary:hover {
-            border-color: #60a5fa;
-
-            color: #60a5fa;
-
-            transform: translateY(-3px);
-        }
-
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            max-width: 1100px;
-
-            margin: auto;
-
-            padding: 90px 25px;
-        }
-
-
-        .section-title {
-            text-align: center;
-
-            font-size: 35px;
-
-            margin-bottom: 50px;
-        }
-
-
-        .section-title span {
-            color: #60a5fa;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about-card {
-            max-width: 850px;
-
-            margin: auto;
-
-            padding: 38px;
-
-            background: rgba(15,23,42,0.65);
-
-            border: 1px solid rgba(255,255,255,0.08);
-
-            border-radius: 20px;
-
-            backdrop-filter: blur(15px);
-
-            -webkit-backdrop-filter: blur(15px);
-
-            text-align: center;
-
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-        }
-
-
-        .about-card p {
-            color: #94a3b8;
-
-            font-size: 17px;
-        }
-
-
-        .about-card strong {
-            color: #ffffff;
-        }
-
-
-        /* =========================
-           PERSONAL INFORMATION
-        ========================= */
-
-        .info-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(230px, 1fr));
-
-            gap: 20px;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 55px;
+            align-items: center;
         }
 
-
-        .info-card {
-            padding: 30px;
-
-            background: rgba(15,23,42,0.65);
-
-            border: 1px solid rgba(255,255,255,0.08);
-
-            border-radius: 18px;
-
-            transition: 0.3s ease;
-        }
-
-
-        .info-card:hover {
-            transform: translateY(-5px);
-
-            border-color: #3b82f6;
-
-            box-shadow: 0 15px 35px rgba(37,99,235,0.12);
-        }
-
-
-        .info-icon {
-            font-size: 30px;
-
-            margin-bottom: 15px;
-        }
-
-
-        .info-card h3 {
+        .eyebrow {
+            color: var(--blue-light);
+            font-size: 19px;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
-
-        .info-card p {
-            color: #94a3b8;
+        .hero h1 {
+            font-size: clamp(43px, 6vw, 72px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
         }
 
+        .hero h1 span {
+            color: var(--blue-light);
+        }
 
-        /* =========================
-           SKILLS
-        ========================= */
+        .hero-subtitle {
+            color: #d7e2f0;
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
 
-        .skills {
+        .hero-description {
+            max-width: 590px;
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 27px;
+        }
+
+        .location {
+            color: #71839a;
+            margin-bottom: 27px;
+        }
+
+        .buttons {
             display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
             flex-wrap: wrap;
-
-            gap: 15px;
+            gap: 13px;
+            margin-bottom: 25px;
         }
 
-
-        .skill {
-            padding: 13px 22px;
-
-            border-radius: 50px;
-
-            background: rgba(37,99,235,0.12);
-
-            border: 1px solid rgba(96,165,250,0.3);
-
-            color: #bfdbfe;
-
-            font-weight: bold;
-
-            transition: 0.3s ease;
-        }
-
-
-        .skill:hover {
-            transform: translateY(-3px);
-
-            border-color: #60a5fa;
-
-            background: rgba(37,99,235,0.18);
-        }
-
-
-        /* =========================
-           SOCIAL
-        ========================= */
-
-        .social-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(180px, 1fr));
-
-            gap: 18px;
-        }
-
-
-        .social {
-            display: block;
-
-            padding: 22px;
-
-            text-align: center;
-
-            border-radius: 15px;
-
-            background: rgba(15,23,42,0.65);
-
-            border: 1px solid rgba(255,255,255,0.08);
-
-            color: white;
-
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 23px;
+            border-radius: 10px;
             text-decoration: none;
-
-            transition: 0.3s ease;
+            font-weight: 700;
+            transition: 0.25s;
         }
 
-
-        .social:hover {
-            transform: translateY(-5px);
-
-            border-color: #60a5fa;
-
-            color: #60a5fa;
-
-            box-shadow: 0 12px 30px rgba(37,99,235,0.12);
+        .btn-primary {
+            background: linear-gradient(135deg, #2f8cff, #1767dc);
+            color: white;
+            box-shadow: 0 10px 28px rgba(47, 140, 255, 0.24);
         }
 
-
-        .social-icon {
-            font-size: 25px;
-
-            margin-bottom: 7px;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(47, 140, 255, 0.34);
         }
 
+        .btn-secondary {
+            color: var(--blue-light);
+            border: 1px solid rgba(47, 140, 255, 0.65);
+            background: rgba(4, 15, 32, 0.55);
+        }
 
-        .social p {
-            color: #94a3b8;
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: rgba(47, 140, 255, 0.09);
+        }
 
-            margin-top: 4px;
+        .hero-socials {
+            display: flex;
+            gap: 12px;
+        }
 
+        .hero-socials a {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            text-decoration: none;
+            color: white;
+            background: rgba(15, 29, 52, 0.7);
+            border: 1px solid var(--border);
+            font-size: 19px;
+            transition: 0.25s;
+        }
+
+        .hero-socials a:hover {
+            transform: translateY(-3px);
+            border-color: var(--blue-light);
+            color: var(--blue-light);
+        }
+
+        .photo-wrap {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .photo-wrap::before {
+            content: "";
+            position: absolute;
+            width: 290px;
+            height: 290px;
+            border-radius: 50%;
+            background: rgba(47, 140, 255, 0.18);
+            filter: blur(35px);
+        }
+
+        .profile-image {
+            position: relative;
+            width: 285px;
+            height: 285px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 5px solid var(--blue);
+            background: #0b1425;
+            box-shadow:
+                0 0 28px rgba(47, 140, 255, 0.45),
+                0 0 75px rgba(47, 140, 255, 0.18);
+            transition: 0.3s;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.025);
+        }
+
+        /* General sections */
+        section {
+            max-width: 1120px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .section-title {
+            font-size: 34px;
+            margin-bottom: 35px;
+            color: #eef6ff;
+        }
+
+        .section-title span {
+            color: var(--blue-light);
+        }
+
+        .section-title::before {
+            content: "</>";
+            color: var(--blue);
+            font-size: 19px;
+            margin-right: 10px;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-card,
+        .visual-card {
+            background: linear-gradient(145deg, rgba(15, 29, 52, 0.8), rgba(7, 18, 36, 0.62));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 55px rgba(0,0,0,0.18);
+        }
+
+        .about-card p {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 14px;
+        }
+
+        .about-card strong {
+            color: white;
+        }
+
+        .mini-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px;
+            margin-top: 22px;
+        }
+
+        .mini-box {
+            padding: 14px;
+            border-radius: 12px;
+            background: rgba(96, 165, 250, 0.07);
+            border: 1px solid rgba(96,165,250,0.12);
+        }
+
+        .mini-box small {
+            display: block;
+            color: #71839a;
+            margin-bottom: 3px;
+        }
+
+        .mini-box strong {
+            color: #e7f1ff;
             font-size: 14px;
         }
 
+        .visual-card {
+            min-height: 280px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        .code-icon {
+            font-size: 82px;
+            color: var(--blue-light);
+            text-shadow: 0 0 30px rgba(47,140,255,0.35);
+        }
+
+        .visual-card h3 {
+            margin-top: 8px;
+            font-size: 23px;
+        }
+
+        .visual-card p {
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        /* Skills */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .skill {
+            padding: 18px;
+            border-radius: 12px;
+            background: rgba(15, 29, 52, 0.7);
+            border: 1px solid var(--border);
+            color: #e4edf8;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            border-color: rgba(47,140,255,0.65);
+            box-shadow: 0 12px 30px rgba(47,140,255,0.09);
+        }
+
+        .skill span {
+            display: block;
+            font-size: 27px;
+            margin-bottom: 5px;
+        }
+
+        /* Info */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 17px;
+        }
+
+        .info-card {
+            padding: 25px;
+            border-radius: 16px;
+            background: rgba(15, 29, 52, 0.68);
+            border: 1px solid var(--border);
+            transition: 0.25s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(47,140,255,0.58);
+        }
+
+        .info-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+        }
+
+        /* Connect */
+        .connect-text {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .social {
+            display: block;
+            padding: 22px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            background: rgba(15, 29, 52, 0.7);
+            border: 1px solid var(--border);
+            transition: 0.25s;
+        }
+
+        .social:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue-light);
+        }
+
+        .social-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .social p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 3px;
+        }
 
         footer {
             text-align: center;
-
-            padding: 35px 20px;
-
-            border-top: 1px solid rgba(255,255,255,0.08);
-
-            color: #64748b;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            color: #6f8198;
         }
-
 
         footer strong {
-            color: #94a3b8;
+            color: #b9c9dc;
         }
 
+        .top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 10px 28px rgba(47,140,255,0.3);
+        }
 
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
+        @media (max-width: 820px) {
             nav ul {
                 display: none;
             }
 
-
-            .nav-container {
-                padding: 16px 20px;
-            }
-
-
             .hero {
-                min-height: 100vh;
-
-                padding:
-                    120px
-                    20px
-                    70px;
+                padding-top: 115px;
             }
 
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-grid {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons,
+            .hero-socials {
+                justify-content: center;
+            }
+
+            .photo-wrap {
+                order: -1;
+            }
 
             .profile-image {
-                width: 155px;
-
-                height: 155px;
-
-                border-width: 4px;
-
-                margin-bottom: 25px;
+                width: 220px;
+                height: 220px;
             }
 
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
+        @media (max-width: 500px) {
             .hero h1 {
-                font-size: 42px;
-
-                line-height: 1.12;
+                font-size: 40px;
             }
-
 
             .hero-subtitle {
                 font-size: 17px;
-
-                margin-top: 5px;
             }
 
-
-            .location {
-                font-size: 15px;
-
-                margin-bottom: 28px;
+            .profile-image {
+                width: 175px;
+                height: 175px;
             }
-
-
-            .buttons {
-                gap: 10px;
-            }
-
-
-            .btn {
-                padding: 12px 20px;
-            }
-
 
             section {
                 padding: 65px 20px;
             }
 
-
-            .section-title {
-                font-size: 30px;
-
-                margin-bottom: 35px;
-            }
-
-
-            .about-card {
-                padding: 25px;
-            }
-
-
-            .about-card p {
-                font-size: 16px;
-            }
-
-
-            .info-grid {
+            .mini-info {
                 grid-template-columns: 1fr;
             }
-
-
-            .social-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
         }
-
-
-        /* =========================
-           SMALL MOBILE
-        ========================= */
-
-        @media (max-width: 420px) {
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-
-            .profile-image {
-                width: 140px;
-
-                height: 140px;
-            }
-
-
-            .social-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
     </style>
 </head>
 
-
-<body>
-
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+<body id="top">
 
     <nav>
-
         <div class="nav-container">
-
-            <div class="logo">
-                Sanaul<span>.</span>
-            </div>
-
-
+            <div class="logo">&lt;/&gt; Sanaul Haque Omar<span>.</span></div>
             <ul>
-
-                <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#info">Info</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#social">Social</a>
-                </li>
-
+                <li><a href="#top">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#social">Connect</a></li>
             </ul>
-
         </div>
-
     </nav>
 
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
     <header class="hero">
+        <div class="hero-grid">
 
-        <div class="hero-content">
+            <div>
+                <p class="eyebrow">Hello, I'm</p>
 
+                <h1>
+                    Sanaul Haque <span>Omar</span>
+                </h1>
 
-            <!-- Profile Photo -->
+                <p class="hero-subtitle">
+                    Student | Programmer | Web Developer
+                </p>
 
-            <img
-                src="profile.jpg"
-                alt="Sanaul Haque Omar"
-                class="profile-image"
-            >
+                <p class="hero-description">
+                    I love building websites, learning new technologies,
+                    solving problems and turning ideas into useful digital projects.
+                </p>
 
+                <p class="location">
+                    📍 Gazipur, Dhaka, Bangladesh
+                </p>
 
-            <!-- Name -->
+                <div class="buttons">
+                    <a href="#about" class="btn btn-primary">About Me 👤</a>
+                    <a href="#social" class="btn btn-secondary">Connect With Me ✉</a>
+                </div>
 
-            <h1>
-                Sanaul Haque <span>Omar</span>
-            </h1>
+                <div class="hero-socials">
+                    <a href="https://www.facebook.com/doo.x.diee" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                    <a href="https://www.instagram.com/do_x_die" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+                    <a href="https://github.com/Master_x_Mind" target="_blank" rel="noopener noreferrer" aria-label="GitHub">◉</a>
+                </div>
+            </div>
 
-
-            <!-- Profession -->
-
-            <p class="hero-subtitle">
-                Student • Professional Programmer • Web Developer
-            </p>
-
-
-            <!-- Location -->
-
-            <p class="location">
-                📍 Gazipur, Dhaka, Bangladesh
-            </p>
-
-
-            <!-- Buttons -->
-
-            <div class="buttons">
-
-                <a
-                    href="#about"
-                    class="btn btn-primary"
+            <div class="photo-wrap">
+                <img
+                    src="profile.jpg"
+                    alt="Sanaul Haque Omar - Student, Programmer and Web Developer"
+                    class="profile-image"
                 >
-                    About Me
-                </a>
-
-
-                <a
-                    href="#social"
-                    class="btn btn-secondary"
-                >
-                    Connect With Me
-                </a>
-
             </div>
 
         </div>
-
     </header>
 
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
     <section id="about">
+        <h2 class="section-title">About <span>Me</span></h2>
 
-        <h2 class="section-title">
-            About <span>Me</span>
-        </h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <p>
+                    I'm <strong>Sanaul Haque Omar</strong>, a student and
+                    technology enthusiast from Gazipur, Dhaka, Bangladesh.
+                </p>
 
+                <p>
+                    I am interested in programming, web development and
+                    building useful digital projects. I continuously work
+                    on improving my technical skills and learning new technologies.
+                </p>
 
-        <div class="about-card">
+                <div class="mini-info">
+                    <div class="mini-box">
+                        <small>📍 Location</small>
+                        <strong>Gazipur, Bangladesh</strong>
+                    </div>
 
-            <p>
-                Hello! I'm
-                <strong>Sanaul Haque Omar</strong>,
-                a student and passionate technology enthusiast
-                from Gazipur, Dhaka, Bangladesh.
-            </p>
+                    <div class="mini-box">
+                        <small>🎓 Profession</small>
+                        <strong>Student</strong>
+                    </div>
+                </div>
+            </div>
 
-
-            <br>
-
-
-            <p>
-                I am interested in programming, web development
-                and building useful digital projects.
-                I continuously work on improving my technical
-                skills and learning new technologies.
-            </p>
-
+            <div class="visual-card">
+                <div>
+                    <div class="code-icon">&lt;/&gt;</div>
+                    <h3>Building With Code</h3>
+                    <p>Learning • Creating • Improving</p>
+                </div>
+            </div>
         </div>
-
     </section>
-
-
-    <!-- =========================
-         PERSONAL INFORMATION
-    ========================= -->
 
     <section id="info">
-
-        <h2 class="section-title">
-            Personal <span>Information</span>
-        </h2>
-
+        <h2 class="section-title">Personal <span>Information</span></h2>
 
         <div class="info-grid">
-
-
             <div class="info-card">
-
-                <div class="info-icon">
-                    👤
-                </div>
-
-                <h3>
-                    Full Name
-                </h3>
-
-                <p>
-                    Sanaul Haque Omar
-                </p>
-
+                <div class="info-icon">👤</div>
+                <h3>Full Name</h3>
+                <p>Sanaul Haque Omar</p>
             </div>
 
-
             <div class="info-card">
-
-                <div class="info-icon">
-                    🎓
-                </div>
-
-                <h3>
-                    Profession
-                </h3>
-
-                <p>
-                    Student
-                </p>
-
+                <div class="info-icon">🎓</div>
+                <h3>Profession</h3>
+                <p>Student</p>
             </div>
 
-
             <div class="info-card">
-
-                <div class="info-icon">
-                    🎂
-                </div>
-
-                <h3>
-                    Birthday
-                </h3>
-
-                <p>
-                    19 December
-                </p>
-
+                <div class="info-icon">🎂</div>
+                <h3>Birthday</h3>
+                <p>19 December</p>
             </div>
 
-
             <div class="info-card">
-
-                <div class="info-icon">
-                    📍
-                </div>
-
-                <h3>
-                    Location
-                </h3>
-
-                <p>
-                    Gazipur, Dhaka, Bangladesh
-                </p>
-
+                <div class="info-icon">📍</div>
+                <h3>Location</h3>
+                <p>Gazipur, Dhaka, Bangladesh</p>
             </div>
-
         </div>
-
     </section>
-
-
-    <!-- =========================
-         SKILLS
-    ========================= -->
 
     <section id="skills">
-
-        <h2 class="section-title">
-            My <span>Skills</span>
-        </h2>
-
+        <h2 class="section-title"><span>Skills</span></h2>
 
         <div class="skills">
-
             <div class="skill">
-                💻 Professional Programmer
+                <span>💻</span>
+                Professional Programmer
             </div>
 
-
             <div class="skill">
-                🌐 Web Developer
+                <span>🌐</span>
+                Web Developer
             </div>
 
+            <div class="skill">
+                <span>🧩</span>
+                Problem Solving
+            </div>
+
+            <div class="skill">
+                <span>🚀</span>
+                Digital Projects
+            </div>
         </div>
-
     </section>
 
-
-    <!-- =========================
-         SOCIAL
-    ========================= -->
-
     <section id="social">
+        <h2 class="section-title">Connect <span>With Me</span></h2>
 
-        <h2 class="section-title">
-            Connect <span>With Me</span>
-        </h2>
-
+        <p class="connect-text">
+            Follow my profiles and stay connected with my latest projects.
+        </p>
 
         <div class="social-grid">
 
-
-            <!-- Facebook -->
-
             <a
-                href="https://facebook.com/"
+                href="https://www.facebook.com/doo.x.diee"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social"
             >
-
-                <div class="social-icon">
-                    📘
-                </div>
-
-                <strong>
-                    Facebook
-                </strong>
-
-                <p>
-                    Sanaul Haque Omar
-                </p>
-
+                <div class="social-icon">📘</div>
+                <strong>Facebook</strong>
+                <p>facebook.com/doo.x.diee</p>
             </a>
 
-
-            <!-- Instagram -->
-
             <a
-                href="https://instagram.com/do_x_die"
+                href="https://www.instagram.com/do_x_die"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social"
             >
-
-                <div class="social-icon">
-                    📸
-                </div>
-
-                <strong>
-                    Instagram
-                </strong>
-
-                <p>
-                    @do_x_die
-                </p>
-
+                <div class="social-icon">📸</div>
+                <strong>Instagram</strong>
+                <p>@do_x_die</p>
             </a>
-
-
-            <!-- GitHub -->
 
             <a
                 href="https://github.com/Master_x_Mind"
@@ -1091,63 +793,19 @@
                 rel="noopener noreferrer"
                 class="social"
             >
-
-                <div class="social-icon">
-                    💻
-                </div>
-
-                <strong>
-                    GitHub
-                </strong>
-
-                <p>
-                    Master_x_Mind
-                </p>
-
-            </a>
-
-
-            <!-- LinkedIn -->
-
-            <a
-                href="https://linkedin.com/in/Master_x_Mind"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social"
-            >
-
-                <div class="social-icon">
-                    💼
-                </div>
-
-                <strong>
-                    LinkedIn
-                </strong>
-
-                <p>
-                    Master_x_Mind
-                </p>
-
+                <div class="social-icon">💻</div>
+                <strong>GitHub</strong>
+                <p>Master_x_Mind</p>
             </a>
 
         </div>
-
     </section>
 
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
     <footer>
-
-        © 2026
-        <strong>Sanaul Haque Omar</strong>.
-        All rights reserved.
-
+        © 2026 <strong>Sanaul Haque Omar</strong>. All rights reserved.
     </footer>
 
+    <a href="#top" class="top" aria-label="Back to top">↑</a>
 
 </body>
-
 </html>
