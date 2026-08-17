@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mastemind234385.github.io/sitemap.xml
+Sitemap: https://69mastermind69.github.io/sitemap.xml
