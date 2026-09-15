@@ -5,28 +5,35 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
-<meta name="theme-color" content="#030305">
+<meta name="theme-color" content="#020204">
 
-<meta name="description"
-      content="Sanaul Haque Omar — Student, Programmer and Web Developer.">
+<meta
+    name="description"
+    content="Sanaul Haque Omar — Student, Programmer and Web Developer."
+>
 
-<meta name="author"
-      content="Sanaul Haque Omar">
+<meta name="author" content="Sanaul Haque Omar">
 
 <title>Sanaul Haque Omar — MASTERMIND</title>
 
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
+
+<!-- Fonts -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
       href="https://fonts.gstatic.com"
       crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
 
 
 <style>
@@ -50,7 +57,7 @@ body{
     min-width:320px;
     overflow-x:hidden;
 
-    background:#030305;
+    background:#020204;
     color:#fff;
 
     font-family:"Inter",sans-serif;
@@ -59,13 +66,13 @@ body{
 }
 
 body::selection{
-    background:#b3002d;
+    background:#e51b4f;
     color:#fff;
 }
 
 img{
-    display:block;
     max-width:100%;
+    display:block;
 }
 
 a{
@@ -79,27 +86,25 @@ button{
 
 
 /* =========================================================
-   COLORS
+   VARIABLES
 ========================================================= */
 
 :root{
 
-    --black:#030305;
-    --black2:#07070b;
+    --bg:#020204;
+    --bg2:#06060a;
 
     --red:#ff174f;
-    --red2:#c40035;
-    --redGlow:rgba(255,23,79,.28);
+    --red-dark:#a90032;
 
     --blue:#168cff;
-    --blue2:#00d9ff;
-    --blueGlow:rgba(22,140,255,.25);
+    --cyan:#00d9ff;
 
-    --purple:#8955ff;
+    --purple:#8c55ff;
 
     --white:#ffffff;
-    --text:#d7d5dd;
-    --muted:#777582;
+    --text:#d8d6df;
+    --muted:#77747f;
 
     --border:rgba(255,255,255,.075);
 
@@ -107,97 +112,113 @@ button{
 
 
 /* =========================================================
-   BACKGROUND
+   AMBIENT BACKGROUND
 ========================================================= */
 
-.background{
+.bg{
+
     position:fixed;
     inset:0;
 
-    z-index:-20;
+    z-index:-50;
 
     overflow:hidden;
 
     background:
         radial-gradient(
-            circle at 15% 15%,
-            rgba(255,0,55,.09),
+            circle at 15% 10%,
+            rgba(255,0,60,.10),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(0,120,255,.09),
             transparent 30%
         ),
 
-        radial-gradient(
-            circle at 85% 30%,
-            rgba(0,120,255,.09),
-            transparent 32%
-        ),
+        #020204;
 
-        #030305;
 }
 
 
-/* red glow */
+/* Ambient orbs */
 
-.background::before{
-
-    content:"";
+.bg-orb{
 
     position:absolute;
 
-    width:500px;
-    height:500px;
-
-    left:-250px;
-    top:15%;
+    width:420px;
+    height:420px;
 
     border-radius:50%;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,0,55,.14),
-            transparent 68%
-        );
+    filter:blur(70px);
 
-    filter:blur(35px);
+    opacity:.12;
 
-    animation:
-        redGlow 12s ease-in-out infinite alternate;
+    pointer-events:none;
 
 }
 
 
-/* blue glow */
+.bg-orb.red{
 
-.background::after{
+    top:-180px;
+    left:-180px;
 
-    content:"";
-
-    position:absolute;
-
-    width:520px;
-    height:520px;
-
-    right:-260px;
-    top:40%;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0,130,255,.13),
-            transparent 68%
-        );
-
-    filter:blur(35px);
+    background:#ff003c;
 
     animation:
-        blueGlow 14s ease-in-out infinite alternate;
+        orbRed 14s ease-in-out infinite alternate;
 
 }
 
 
-@keyframes redGlow{
+.bg-orb.blue{
+
+    right:-190px;
+    top:30%;
+
+    background:#006eff;
+
+    animation:
+        orbBlue 16s ease-in-out infinite alternate;
+
+}
+
+
+.bg-orb.purple{
+
+    bottom:-220px;
+    left:35%;
+
+    background:#7138ff;
+
+    animation:
+        orbPurple 18s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes orbRed{
+
+    from{
+        transform:
+            translate(0,0)
+            scale(.8);
+    }
+
+    to{
+        transform:
+            translate(130px,80px)
+            scale(1.15);
+    }
+
+}
+
+
+@keyframes orbBlue{
 
     from{
         transform:
@@ -207,25 +228,25 @@ button{
 
     to{
         transform:
-            translate(120px,50px)
+            translate(-110px,-80px)
             scale(1.15);
     }
 
 }
 
 
-@keyframes blueGlow{
+@keyframes orbPurple{
 
     from{
         transform:
-            translate(0,0)
-            scale(.85);
+            translateY(40px)
+            scale(.8);
     }
 
     to{
         transform:
-            translate(-100px,-60px)
-            scale(1.15);
+            translateY(-60px)
+            scale(1.1);
     }
 
 }
@@ -240,46 +261,48 @@ button{
     position:absolute;
     inset:0;
 
-    opacity:.23;
+    opacity:.25;
 
     background-image:
 
         radial-gradient(
             circle,
-            rgba(255,255,255,.8) 1px,
+            rgba(255,255,255,.75) 1px,
             transparent 1.5px
         ),
 
         radial-gradient(
             circle,
-            rgba(30,140,255,.65) 1px,
+            rgba(0,190,255,.7) 1px,
             transparent 1.5px
         ),
 
         radial-gradient(
             circle,
-            rgba(255,30,80,.6) 1px,
+            rgba(255,40,80,.6) 1px,
             transparent 1.5px
         );
 
     background-size:
-        130px 130px,
-        190px 190px,
-        250px 250px;
+        140px 140px,
+        220px 220px,
+        290px 290px;
 
     animation:
-        starsMove 45s linear infinite;
+        stars 50s linear infinite;
 
 }
 
 
-@keyframes starsMove{
+@keyframes stars{
 
     to{
+
         background-position:
-            80px -150px,
-            -100px -200px,
-            150px -280px;
+            80px -180px,
+            -100px -250px,
+            150px -320px;
+
     }
 
 }
@@ -294,36 +317,36 @@ button{
     position:absolute;
     inset:0;
 
-    opacity:.055;
+    opacity:.045;
 
     background-image:
 
         linear-gradient(
-            rgba(255,255,255,.08) 1px,
+            rgba(255,255,255,.1) 1px,
             transparent 1px
         ),
 
         linear-gradient(
             90deg,
-            rgba(255,255,255,.08) 1px,
+            rgba(255,255,255,.1) 1px,
             transparent 1px
         );
 
     background-size:
-        55px 55px;
+        60px 60px;
 
     mask-image:
         linear-gradient(
             to bottom,
             black,
-            transparent 80%
+            transparent 82%
         );
 
 }
 
 
 /* =========================================================
-   PROGRESS
+   SCROLL PROGRESS
 ========================================================= */
 
 #progress{
@@ -343,37 +366,38 @@ button{
             90deg,
             var(--red),
             var(--purple),
-            var(--blue2)
+            var(--blue),
+            var(--cyan)
         );
 
     box-shadow:
-        0 0 15px var(--redGlow);
+        0 0 15px rgba(255,23,79,.6);
 
 }
 
 
 /* =========================================================
-   NAVBAR
+   NAVIGATION
 ========================================================= */
 
-nav{
+.navbar{
 
     position:fixed;
 
     top:10px;
     left:50%;
 
-    transform:translateX(-50%);
-
     width:
         min(
             calc(100% - 20px),
-            1100px
+            1120px
         );
 
-    z-index:900;
+    transform:translateX(-50%);
 
-    padding:8px;
+    z-index:1000;
+
+    padding:7px;
 
     border:
         1px solid rgba(255,255,255,.07);
@@ -381,26 +405,27 @@ nav{
     border-radius:18px;
 
     background:
-        rgba(4,4,8,.78);
+        rgba(4,4,8,.72);
 
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
-    transition:.3s ease;
+    transition:
+        .35s ease;
 
 }
 
 
-nav.scrolled{
+.navbar.scrolled{
 
     background:
-        rgba(3,3,6,.94);
+        rgba(2,2,5,.94);
 
     border-color:
         rgba(255,23,79,.15);
 
     box-shadow:
-        0 12px 40px rgba(0,0,0,.4);
+        0 15px 50px rgba(0,0,0,.4);
 
 }
 
@@ -410,14 +435,16 @@ nav.scrolled{
     display:flex;
 
     align-items:center;
+
     justify-content:space-between;
 
 }
 
 
-.logo{
+.brand{
 
-    padding:8px 11px;
+    padding:
+        8px 12px;
 
     font-family:"Orbitron",sans-serif;
 
@@ -425,15 +452,17 @@ nav.scrolled{
 
     font-weight:900;
 
-    letter-spacing:.15em;
-
-    color:#fff;
+    letter-spacing:.18em;
 
 }
 
 
-.logo span{
+.brand i{
+
     color:var(--red);
+
+    font-style:normal;
+
 }
 
 
@@ -449,13 +478,13 @@ nav.scrolled{
 .nav-links a{
 
     padding:
-        8px 10px;
+        8px 11px;
 
     border-radius:10px;
 
-    color:#777681;
+    color:#77747f;
 
-    font-size:.67rem;
+    font-size:.65rem;
 
     font-weight:700;
 
@@ -476,10 +505,10 @@ nav.scrolled{
 
 
 /* =========================================================
-   COMMON
+   GENERAL
 ========================================================= */
 
-section{
+.container{
 
     width:
         min(
@@ -495,7 +524,7 @@ section{
 .section{
 
     padding:
-        95px 0;
+        105px 0;
 
 }
 
@@ -519,9 +548,9 @@ section{
     background:
         rgba(255,255,255,.025);
 
-    color:#97949f;
+    color:#92909b;
 
-    font-size:.57rem;
+    font-size:.56rem;
 
     font-weight:800;
 
@@ -547,41 +576,32 @@ section{
         0 0 12px var(--red);
 
     animation:
-        pulseDot 1.6s infinite;
+        dotPulse 1.6s infinite;
 
 }
 
 
-@keyframes pulseDot{
+@keyframes dotPulse{
 
     50%{
-        opacity:.3;
+        opacity:.25;
         transform:scale(.7);
     }
 
 }
 
 
-.section-head{
+.section-title{
 
-    margin-bottom:40px;
-
-    text-align:center;
-
-}
-
-
-.section-head h2{
-
-    margin-top:14px;
+    margin-top:15px;
 
     font-family:"Space Grotesk",sans-serif;
 
     font-size:
         clamp(
             2rem,
-            7vw,
-            3.7rem
+            6vw,
+            3.8rem
         );
 
     line-height:1;
@@ -591,12 +611,12 @@ section{
 }
 
 
-.section-head p{
+.section-description{
 
     max-width:580px;
 
     margin:
-        13px auto 0;
+        14px auto 0;
 
     color:var(--muted);
 
@@ -611,21 +631,20 @@ section{
 
 .hero{
 
-    min-height:100svh;
-
-    padding:
-        120px 0 60px;
+    min-height:
+        100svh;
 
     display:flex;
 
     align-items:center;
 
+    padding:
+        120px 0 55px;
+
 }
 
 
 .hero-grid{
-
-    width:100%;
 
     display:grid;
 
@@ -639,7 +658,7 @@ section{
 }
 
 
-.hero-content{
+.hero-copy{
 
     position:relative;
 
@@ -648,7 +667,7 @@ section{
 }
 
 
-.owner{
+.owner-badge{
 
     display:inline-flex;
 
@@ -662,20 +681,20 @@ section{
         8px 12px;
 
     border:
-        1px solid rgba(255,23,79,.2);
+        1px solid rgba(255,23,79,.18);
 
     border-radius:999px;
 
     background:
         linear-gradient(
             110deg,
-            rgba(255,23,79,.09),
-            rgba(0,130,255,.05)
+            rgba(255,23,79,.08),
+            rgba(0,120,255,.04)
         );
 
-    color:#bbb8c2;
+    color:#aaa7b2;
 
-    font-size:.59rem;
+    font-size:.58rem;
 
     font-weight:800;
 
@@ -684,17 +703,19 @@ section{
     text-transform:uppercase;
 
     animation:
-        ownerFloat 4s ease-in-out infinite;
+        badgeFloat 4s ease-in-out infinite;
 
 }
 
 
-.owner strong{
+.owner-badge strong{
+
     color:#ff5275;
+
 }
 
 
-@keyframes ownerFloat{
+@keyframes badgeFloat{
 
     50%{
         transform:translateY(-4px);
@@ -703,63 +724,62 @@ section{
 }
 
 
-.hero h1{
-
-    max-width:750px;
+.hero-title{
 
     font-family:"Space Grotesk",sans-serif;
 
     font-size:
         clamp(
-            3.1rem,
+            3.15rem,
             8vw,
-            6.7rem
+            7rem
         );
 
-    line-height:.88;
+    line-height:.86;
 
     letter-spacing:-.075em;
 
 }
 
 
-.hero h1 .second{
+.hero-title .line{
 
     display:block;
 
 }
 
 
-.gradient{
+.hero-title .accent{
 
     background:
+
         linear-gradient(
             100deg,
-            #fff 5%,
-            #ff5075 32%,
-            #9b5cff 55%,
-            #2e9cff 78%,
+            #fff 0%,
+            #ff4168 28%,
+            #a052ff 52%,
+            #238eff 76%,
             #fff 100%
         );
 
     background-size:
-        230% auto;
+        250% auto;
 
     -webkit-background-clip:text;
 
     color:transparent;
 
     animation:
-        gradientMove 7s linear infinite;
+        gradientFlow 8s linear infinite;
 
 }
 
 
-@keyframes gradientMove{
+@keyframes gradientFlow{
 
     to{
         background-position:
-            230% center;
+            250% center;
     }
 
 }
@@ -767,16 +787,16 @@ section{
 
 .hero-role{
 
-    margin-top:23px;
+    margin-top:24px;
 
-    color:#8e8b97;
+    color:#81808a;
 
-    font-size:.88rem;
+    font-size:.86rem;
 
 }
 
 
-.hero-role b{
+.hero-role strong{
 
     color:#fff;
 
@@ -803,7 +823,10 @@ section{
 
     vertical-align:-.12em;
 
-    background:var(--blue2);
+    background:var(--cyan);
+
+    box-shadow:
+        0 0 8px var(--cyan);
 
     animation:
         cursorBlink .8s infinite;
@@ -826,14 +849,14 @@ section{
 
     margin-top:8px;
 
-    color:#686671;
+    color:#686670;
 
-    font-size:.78rem;
+    font-size:.77rem;
 
 }
 
 
-.hero-buttons{
+.hero-actions{
 
     display:flex;
 
@@ -841,18 +864,18 @@ section{
 
     gap:9px;
 
-    margin-top:26px;
+    margin-top:27px;
 
 }
 
 
-.btn{
+.button{
 
     position:relative;
 
     overflow:hidden;
 
-    min-height:46px;
+    min-height:47px;
 
     display:inline-flex;
 
@@ -863,14 +886,14 @@ section{
     gap:8px;
 
     padding:
-        0 17px;
+        0 18px;
 
     border:
-        1px solid rgba(255,255,255,.09);
+        1px solid rgba(255,255,255,.08);
 
     border-radius:13px;
 
-    font-size:.69rem;
+    font-size:.68rem;
 
     font-weight:800;
 
@@ -881,71 +904,71 @@ section{
 }
 
 
-.btn::after{
+.button::before{
 
     content:"";
 
     position:absolute;
 
-    top:0;
-    left:-130%;
-
-    width:80%;
-    height:100%;
+    inset:0;
 
     background:
         linear-gradient(
             110deg,
-            transparent,
-            rgba(255,255,255,.3),
-            transparent
+            transparent 20%,
+            rgba(255,255,255,.22) 50%,
+            transparent 80%
         );
 
     transform:
-        skewX(-20deg);
+        translateX(-130%);
 
-    transition:.6s;
+    transition:
+        .7s ease;
 
 }
 
 
-.btn:hover::after{
-    left:140%;
+.button:hover::before{
+
+    transform:
+        translateX(130%);
+
 }
 
 
-.primary{
+.button.primary{
 
     border:0;
 
     background:
         linear-gradient(
             110deg,
-            #bd0038,
+            #a90032,
             #ff174f,
-            #3b75ff
+            #406cff
         );
 
     box-shadow:
         0 12px 35px
-        rgba(255,23,79,.16);
+        rgba(255,23,79,.15);
 
 }
 
 
-.primary:hover{
+.button.primary:hover{
 
     transform:
-        translateY(-3px);
+        translateY(-4px);
 
     box-shadow:
-        0 18px 45px
-        rgba(255,23,79,.24);
+        0 18px 50px
+        rgba(255,23,79,.25);
 
 }
 
 
-.secondary{
+.button.secondary{
 
     background:
         rgba(255,255,255,.035);
@@ -953,11 +976,22 @@ section{
 }
 
 
+.button.secondary:hover{
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(0,150,255,.2);
+
+}
+
+
 /* =========================================================
-   PROFILE
+   HERO PROFILE
 ========================================================= */
 
-.profile-stage{
+.visual{
 
     position:relative;
 
@@ -978,20 +1012,21 @@ section{
 }
 
 
-.profile-glow{
+.visual-glow{
 
     position:absolute;
 
-    width:55%;
+    width:58%;
 
     aspect-ratio:1;
 
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle,
-            rgba(255,0,55,.35),
+            rgba(255,23,79,.35),
             rgba(0,120,255,.18),
             transparent 70%
         );
@@ -999,19 +1034,19 @@ section{
     filter:blur(35px);
 
     animation:
-        profileGlow 5s ease-in-out infinite alternate;
+        visualGlow 5s ease-in-out infinite alternate;
 
 }
 
 
-@keyframes profileGlow{
+@keyframes visualGlow{
 
     from{
-        transform:scale(.8);
+        transform:scale(.78);
     }
 
     to{
-        transform:scale(1.15);
+        transform:scale(1.12);
     }
 
 }
@@ -1023,19 +1058,17 @@ section{
 
     border-radius:50%;
 
-    border:
-        1px solid rgba(255,255,255,.08);
-
 }
 
 
-.orbit1{
+.orbit.one{
 
     width:72%;
     height:72%;
 
-    border-color:
-        rgba(255,23,79,.2);
+    border:
+        1px solid
+        rgba(255,23,79,.22);
 
     animation:
         spin 15s linear infinite;
@@ -1043,30 +1076,66 @@ section{
 }
 
 
-.orbit2{
+.orbit.two{
 
     width:86%;
     height:86%;
 
-    border-color:
-        rgba(20,130,255,.18);
+    border:
+        1px solid
+        rgba(0,160,255,.19);
 
     animation:
-        reverseSpin 23s linear infinite;
+        reverseSpin 22s linear infinite;
 
 }
 
 
-.orbit3{
+.orbit.three{
 
     width:100%;
     height:100%;
 
-    border-color:
-        rgba(255,255,255,.055);
+    border:
+        1px dashed
+        rgba(255,255,255,.06);
 
     animation:
-        spin 32s linear infinite;
+        spin 34s linear infinite;
+
+}
+
+
+.orbit::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    top:7%;
+    left:13%;
+
+    border-radius:50%;
+
+    background:var(--red);
+
+    box-shadow:
+        0 0 10px var(--red),
+        0 0 25px var(--red);
+
+}
+
+
+.orbit.two::after{
+
+    background:var(--cyan);
+
+    box-shadow:
+        0 0 10px var(--cyan),
+        0 0 25px var(--cyan);
 
 }
 
@@ -1089,41 +1158,7 @@ section{
 }
 
 
-.orbit::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:7%;
-    left:12%;
-
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:var(--red);
-
-    box-shadow:
-        0 0 10px var(--red),
-        0 0 25px var(--red);
-
-}
-
-
-.orbit2::before{
-
-    background:var(--blue2);
-
-    box-shadow:
-        0 0 10px var(--blue2),
-        0 0 25px var(--blue2);
-
-}
-
-
-.profile-ring{
+.avatar-ring{
 
     position:relative;
 
@@ -1136,17 +1171,19 @@ section{
     border-radius:50%;
 
     background:
+
         conic-gradient(
             from 0deg,
             var(--red),
-            #8d1cff,
-            var(--blue2),
+            var(--purple),
+            var(--blue),
+            var(--cyan),
             var(--red)
         );
 
     box-shadow:
-        0 0 45px
-        rgba(255,23,79,.16);
+        0 0 50px
+        rgba(255,23,79,.14);
 
     animation:
         spin 10s linear infinite;
@@ -1154,7 +1191,7 @@ section{
 }
 
 
-.profile-inner{
+.avatar{
 
     width:100%;
     height:100%;
@@ -1173,7 +1210,7 @@ section{
 }
 
 
-.profile-inner img{
+.avatar img{
 
     width:100%;
     height:100%;
@@ -1186,12 +1223,14 @@ section{
 
 
 /* =========================================================
-   FLOAT CARDS
+   FLOATING INFO
 ========================================================= */
 
-.float-card{
+.float{
 
     position:absolute;
+
+    z-index:10;
 
     padding:
         9px 11px;
@@ -1202,70 +1241,68 @@ section{
     border-radius:12px;
 
     background:
-        rgba(6,6,10,.78);
+        rgba(5,5,9,.82);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(14px);
 
-    color:#777580;
+    color:#70707a;
 
-    font-size:.52rem;
-
-    z-index:5;
+    font-size:.5rem;
 
 }
 
 
-.float-card strong{
+.float strong{
 
     display:block;
 
     color:#fff;
 
-    font-size:.63rem;
+    font-size:.61rem;
 
 }
 
 
-.float1{
+.float.red{
 
-    top:13%;
-    left:-2%;
+    top:12%;
+    left:-3%;
 
     border-color:
         rgba(255,23,79,.18);
 
     animation:
-        floating 5s ease-in-out infinite;
+        floatUp 5s ease-in-out infinite;
 
 }
 
 
-.float2{
+.float.blue{
 
     top:30%;
-    right:-2%;
+    right:-3%;
 
     border-color:
-        rgba(20,140,255,.18);
+        rgba(0,150,255,.18);
 
     animation:
-        floating2 6s ease-in-out infinite;
+        floatDown 6s ease-in-out infinite;
 
 }
 
 
-.float3{
+.float.bottom{
 
-    bottom:13%;
-    left:4%;
+    bottom:12%;
+    left:3%;
 
     animation:
-        floating 6.5s ease-in-out infinite reverse;
+        floatUp 6.5s ease-in-out infinite reverse;
 
 }
 
 
-@keyframes floating{
+@keyframes floatUp{
 
     50%{
         transform:translateY(-9px);
@@ -1274,7 +1311,7 @@ section{
 }
 
 
-@keyframes floating2{
+@keyframes floatDown{
 
     50%{
         transform:translateY(9px);
@@ -1284,8 +1321,15 @@ section{
 
 
 /* =========================================================
-   ABOUT
+   ABOUT CARDS
 ========================================================= */
+
+.section-center{
+
+    text-align:center;
+
+}
+
 
 .about-grid{
 
@@ -1301,12 +1345,13 @@ section{
 
 .glass{
 
-    padding:27px;
+    padding:
+        28px;
 
     border:
         1px solid var(--border);
 
-    border-radius:22px;
+    border-radius:23px;
 
     background:
         linear-gradient(
@@ -1316,21 +1361,23 @@ section{
         );
 
     box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.16);
+        0 25px 70px
+        rgba(0,0,0,.18);
 
-    transition:.3s ease;
+    transition:
+        transform .35s ease,
+        border-color .35s ease;
 
 }
 
 
 .glass:hover{
 
+    transform:
+        translateY(-5px);
+
     border-color:
         rgba(255,23,79,.18);
-
-    transform:
-        translateY(-4px);
 
 }
 
@@ -1350,7 +1397,7 @@ section{
 
     color:var(--muted);
 
-    font-size:.77rem;
+    font-size:.76rem;
 
 }
 
@@ -1361,14 +1408,14 @@ section{
 
     justify-content:space-between;
 
-    gap:12px;
+    gap:15px;
 
     padding:11px 0;
 
     border-bottom:
-        1px solid rgba(255,255,255,.055);
+        1px solid rgba(255,255,255,.05);
 
-    font-size:.7rem;
+    font-size:.69rem;
 
 }
 
@@ -1379,13 +1426,13 @@ section{
 
 
 .info-row span:first-child{
-    color:#62606b;
+    color:#62616b;
 }
 
 
 .info-row span:last-child{
 
-    color:#e5e3e9;
+    color:#e2e0e7;
 
     font-weight:700;
 
@@ -1412,12 +1459,17 @@ section{
 
 .skill{
 
-    min-height:180px;
+    position:relative;
 
-    padding:21px;
+    overflow:hidden;
+
+    min-height:185px;
+
+    padding:
+        21px;
 
     border:
-        1px solid rgba(255,255,255,.075);
+        1px solid rgba(255,255,255,.07);
 
     border-radius:20px;
 
@@ -1425,13 +1477,53 @@ section{
         linear-gradient(
             145deg,
             rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
+            rgba(255,255,255,.01)
         );
 
     transition:
         transform .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.skill::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    right:-55px;
+    bottom:-55px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,23,79,.15);
+
+    filter:blur(25px);
+
+    transition:.4s ease;
+
+}
+
+
+.skill:hover::after{
+
+    transform:
+        scale(2);
+
+}
+
+
+.skill:nth-child(even)::after{
+
+    background:
+        rgba(0,140,255,.14);
 
 }
 
@@ -1445,8 +1537,7 @@ section{
         rgba(255,23,79,.2);
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,.25),
-        0 0 25px rgba(255,23,79,.05);
+        0 20px 55px rgba(0,0,0,.25);
 
 }
 
@@ -1454,15 +1545,15 @@ section{
 .skill:nth-child(even):hover{
 
     border-color:
-        rgba(20,140,255,.22);
+        rgba(0,150,255,.2);
 
 }
 
 
 .skill-icon{
 
-    width:44px;
-    height:44px;
+    width:43px;
+    height:43px;
 
     display:grid;
 
@@ -1476,11 +1567,9 @@ section{
     background:
         linear-gradient(
             135deg,
-            rgba(255,23,79,.12),
-            rgba(20,140,255,.09)
+            rgba(255,23,79,.11),
+            rgba(0,130,255,.09)
         );
-
-    font-size:1rem;
 
 }
 
@@ -1489,7 +1578,7 @@ section{
 
     margin-top:18px;
 
-    font-size:.84rem;
+    font-size:.83rem;
 
 }
 
@@ -1498,9 +1587,9 @@ section{
 
     margin-top:5px;
 
-    color:#65636e;
+    color:#64626d;
 
-    font-size:.65rem;
+    font-size:.63rem;
 
 }
 
@@ -1509,13 +1598,17 @@ section{
    CONNECT
 ========================================================= */
 
-.connect{
+.connect-box{
+
+    position:relative;
+
+    overflow:hidden;
 
     padding:
         clamp(
-            32px,
+            34px,
             6vw,
-            65px
+            70px
         );
 
     text-align:center;
@@ -1523,20 +1616,20 @@ section{
     border:
         1px solid rgba(255,255,255,.08);
 
-    border-radius:26px;
+    border-radius:27px;
 
     background:
 
         radial-gradient(
-            circle at 30% 0%,
-            rgba(255,23,79,.1),
-            transparent 38%
+            circle at 20% 0%,
+            rgba(255,23,79,.11),
+            transparent 35%
         ),
 
         radial-gradient(
-            circle at 70% 100%,
-            rgba(0,120,255,.1),
-            transparent 40%
+            circle at 80% 100%,
+            rgba(0,130,255,.10),
+            transparent 38%
         ),
 
         rgba(255,255,255,.018);
@@ -1544,7 +1637,7 @@ section{
 }
 
 
-.connect h2{
+.connect-box h2{
 
     margin-top:15px;
 
@@ -1554,7 +1647,7 @@ section{
         clamp(
             2rem,
             7vw,
-            4rem
+            4.2rem
         );
 
     line-height:1;
@@ -1564,16 +1657,16 @@ section{
 }
 
 
-.connect p{
+.connect-box p{
 
     max-width:560px;
 
     margin:
-        13px auto 24px;
+        14px auto 25px;
 
     color:var(--muted);
 
-    font-size:.76rem;
+    font-size:.75rem;
 
 }
 
@@ -1606,7 +1699,7 @@ section{
 
     color:#aaa7b2;
 
-    font-size:.67rem;
+    font-size:.66rem;
 
     font-weight:800;
 
@@ -1617,13 +1710,13 @@ section{
 
 .social:hover{
 
+    transform:
+        translateY(-4px);
+
     color:#fff;
 
-    transform:
-        translateY(-3px);
-
     border-color:
-        rgba(255,23,79,.2);
+        rgba(255,23,79,.22);
 
 }
 
@@ -1632,14 +1725,14 @@ section{
    MASTERMIND
 ========================================================= */
 
-.mastermind-section{
+.mastermind-area{
 
     position:relative;
 
     width:100%;
 
     padding:
-        115px 10px
+        120px 10px
         100px;
 
     overflow:hidden;
@@ -1649,22 +1742,22 @@ section{
 }
 
 
-.mastermind-section::before{
+.mastermind-area::before{
 
     content:"";
 
     position:absolute;
 
-    left:50%;
-    top:50%;
-
     width:
         min(
             700px,
-            150vw
+            160vw
         );
 
     aspect-ratio:1;
+
+    left:50%;
+    top:50%;
 
     transform:
         translate(-50%,-50%);
@@ -1672,10 +1765,11 @@ section{
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(255,23,79,.12),
-            rgba(20,130,255,.06) 38%,
+            rgba(0,130,255,.06) 38%,
             transparent 70%
         );
 
@@ -1688,9 +1782,9 @@ section{
 
     position:relative;
 
-    color:#65636d;
+    color:#62606a;
 
-    font-size:.58rem;
+    font-size:.55rem;
 
     font-weight:800;
 
@@ -1707,49 +1801,50 @@ section{
 
     width:100%;
 
-    margin-top:17px;
+    margin-top:16px;
+
+    padding:
+        0 4px;
 
     font-family:"Orbitron",sans-serif;
 
     /*
-       IMPORTANT:
-       No nowrap here.
-       Mobile can safely wrap/scale.
+       Responsive and safe:
+       no nowrap
+       no fixed huge width
     */
 
     font-size:
         clamp(
-            2.15rem,
-            13vw,
+            2rem,
+            12vw,
             9rem
         );
 
-    font-weight:900;
+    line-height:1;
 
-    line-height:.95;
+    font-weight:900;
 
     letter-spacing:
         clamp(
-            .01em,
-            .4vw,
-            .04em
+            0,
+            .35vw,
+            .035em
         );
 
     overflow-wrap:
         anywhere;
 
-    word-break:
-        normal;
-
     background:
+
         linear-gradient(
             100deg,
-            #fff,
-            #ff315e,
-            #b239ff,
-            #168cff,
+            #ffffff,
+            #ff2859,
+            #a43fff,
+            #248cff,
             #00d9ff,
-            #fff
+            #ffffff
         );
 
     background-size:
@@ -1765,8 +1860,8 @@ section{
 
     filter:
         drop-shadow(
-            0 0 20px
-            rgba(255,23,79,.15)
+            0 0 22px
+            rgba(255,23,79,.16)
         );
 
 }
@@ -1785,7 +1880,8 @@ section{
 @keyframes mastermindFloat{
 
     50%{
-        transform:translateY(-5px);
+        transform:
+            translateY(-5px);
     }
 
 }
@@ -1797,11 +1893,11 @@ section{
 
     margin-top:22px;
 
-    color:#706d78;
+    color:#696771;
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:.62rem;
+    font-size:.59rem;
 
     letter-spacing:.18em;
 
@@ -1816,15 +1912,17 @@ section{
 
     margin-top:15px;
 
-    color:#55535e;
+    color:#4f4d57;
 
-    font-size:.6rem;
+    font-size:.58rem;
 
 }
 
 
 .master-owner strong{
-    color:#a9a5b1;
+
+    color:#85818c;
+
 }
 
 
@@ -1835,7 +1933,7 @@ section{
 footer{
 
     padding:
-        23px 15px
+        24px 15px
         calc(
             25px +
             env(safe-area-inset-bottom)
@@ -1844,17 +1942,17 @@ footer{
     border-top:
         1px solid rgba(255,255,255,.05);
 
-    color:#4f4d57;
+    color:#484650;
 
     text-align:center;
 
-    font-size:.61rem;
+    font-size:.6rem;
 
 }
 
 
 footer strong{
-    color:#85818d;
+    color:#7f7b87;
 }
 
 
@@ -1877,11 +1975,11 @@ footer strong{
     width:42px;
     height:42px;
 
+    z-index:800;
+
     display:grid;
 
     place-items:center;
-
-    z-index:800;
 
     border:
         1px solid rgba(255,255,255,.1);
@@ -1889,13 +1987,14 @@ footer strong{
     border-radius:12px;
 
     background:
-        rgba(6,6,10,.85);
+        rgba(5,5,9,.88);
 
     color:#fff;
 
     cursor:pointer;
 
     opacity:0;
+
     visibility:hidden;
 
     transform:
@@ -1909,6 +2008,7 @@ footer strong{
 #top.show{
 
     opacity:1;
+
     visibility:visible;
 
     transform:
@@ -1926,11 +2026,11 @@ footer strong{
     opacity:0;
 
     transform:
-        translateY(22px);
+        translateY(25px);
 
     transition:
         opacity .7s ease,
-        transform .7s ease;
+        transform .7s cubic-bezier(.2,.8,.2,1);
 
 }
 
@@ -1958,12 +2058,12 @@ footer strong{
 
         text-align:center;
 
-        gap:55px;
+        gap:50px;
 
     }
 
 
-    .hero-content{
+    .hero-copy{
 
         display:flex;
 
@@ -1975,15 +2075,17 @@ footer strong{
 
 
     .hero-description{
+
         text-align:center;
+
     }
 
 
-    .profile-stage{
+    .visual{
 
         width:
             min(
-                400px,
+                390px,
                 88vw
             );
 
@@ -2016,7 +2118,7 @@ footer strong{
 
     /* NAV */
 
-    nav{
+    .navbar{
 
         top:7px;
 
@@ -2028,16 +2130,16 @@ footer strong{
     }
 
 
-    .nav-inner{
+    .brand{
 
-        justify-content:center;
+        display:none;
 
     }
 
 
-    .logo{
+    .nav-inner{
 
-        display:none;
+        justify-content:center;
 
     }
 
@@ -2057,14 +2159,15 @@ footer strong{
         padding:
             8px 7px;
 
-        font-size:.6rem;
+        font-size:
+            .58rem;
 
     }
 
 
-    /* COMMON */
+    /* GENERAL */
 
-    section{
+    .container{
 
         width:
             calc(100% - 20px);
@@ -2084,9 +2187,6 @@ footer strong{
 
     .hero{
 
-        min-height:
-            100svh;
-
         padding:
             105px 0
             45px;
@@ -2101,41 +2201,40 @@ footer strong{
     }
 
 
-    .owner{
-
-        margin-bottom:17px;
+    .owner-badge{
 
         font-size:
-            .52rem;
+            .50rem;
 
         letter-spacing:
-            .08em;
+            .07em;
 
     }
 
 
-    .hero h1{
+    .hero-title{
 
         width:100%;
 
         font-size:
             clamp(
-                2.65rem,
-                15vw,
+                2.55rem,
+                14.5vw,
                 4.5rem
             );
 
-        letter-spacing:
-            -.07em;
+        line-height:.9;
 
     }
 
 
     .hero-role{
 
-        margin-top:19px;
+        margin-top:
+            18px;
 
-        font-size:.76rem;
+        font-size:
+            .72rem;
 
     }
 
@@ -2143,16 +2242,18 @@ footer strong{
     .hero-description{
 
         max-width:
-            330px;
+            340px;
 
-        font-size:.71rem;
+        font-size:
+            .69rem;
 
-        line-height:1.7;
+        line-height:
+            1.75;
 
     }
 
 
-    .hero-buttons{
+    .hero-actions{
 
         width:100%;
 
@@ -2166,86 +2267,78 @@ footer strong{
     }
 
 
-    .btn{
+    .button{
 
         width:100%;
 
-        min-height:46px;
+        min-height:
+            46px;
 
     }
 
 
     /* PROFILE */
 
-    .profile-stage{
+    .visual{
 
         width:
             min(
-                315px,
-                84vw
+                305px,
+                83vw
             );
 
     }
 
 
-    .profile-ring{
-
-        width:58%;
-
-    }
-
-
-    .float-card{
+    .float{
 
         padding:
             7px 9px;
 
-        border-radius:10px;
+        border-radius:
+            10px;
 
-        font-size:.47rem;
-
-    }
-
-
-    .float-card strong{
-
-        font-size:.58rem;
+        font-size:
+            .44rem;
 
     }
 
 
-    .float1{
+    .float strong{
 
-        left:-5%;
-
-    }
-
-
-    .float2{
-
-        right:-5%;
+        font-size:
+            .55rem;
 
     }
 
 
-    .float3{
+    .float.red{
 
-        left:0;
+        left:
+            -6%;
+
+    }
+
+
+    .float.blue{
+
+        right:
+            -6%;
+
+    }
+
+
+    .float.bottom{
+
+        left:
+            -1%;
 
     }
 
 
     /* SECTION */
 
-    .section-head{
-
-        margin-bottom:
-            30px;
-
-    }
-
-
-    .section-head h2{
+    .section-title{
 
         font-size:
             clamp(
@@ -2257,11 +2350,13 @@ footer strong{
     }
 
 
-    .section-head p{
+    .section-description{
 
-        font-size:.7rem;
+        font-size:
+            .69rem;
 
-        line-height:1.7;
+        line-height:
+            1.7;
 
     }
 
@@ -2290,7 +2385,7 @@ footer strong{
     .glass p{
 
         font-size:
-            .72rem;
+            .70rem;
 
         line-height:
             1.75;
@@ -2301,7 +2396,7 @@ footer strong{
     .info-row{
 
         font-size:
-            .65rem;
+            .63rem;
 
     }
 
@@ -2342,8 +2437,11 @@ footer strong{
 
     .skill-icon{
 
-        width:41px;
-        height:41px;
+        width:
+            40px;
+
+        height:
+            40px;
 
     }
 
@@ -2358,7 +2456,7 @@ footer strong{
 
     /* CONNECT */
 
-    .connect{
+    .connect-box{
 
         padding:
             32px 17px;
@@ -2369,22 +2467,22 @@ footer strong{
     }
 
 
-    .connect h2{
+    .connect-box h2{
 
         font-size:
             clamp(
                 1.9rem,
                 9vw,
-                2.4rem
+                2.5rem
             );
 
     }
 
 
-    .connect p{
+    .connect-box p{
 
         font-size:
-            .7rem;
+            .69rem;
 
         line-height:
             1.7;
@@ -2411,10 +2509,10 @@ footer strong{
 
     /* MASTERMIND */
 
-    .mastermind-section{
+    .mastermind-area{
 
         padding:
-            85px 7px
+            85px 8px
             80px;
 
     }
@@ -2423,10 +2521,10 @@ footer strong{
     .master-label{
 
         font-size:
-            .47rem;
+            .45rem;
 
         letter-spacing:
-            .14em;
+            .12em;
 
     }
 
@@ -2434,26 +2532,25 @@ footer strong{
     .mastermind{
 
         /*
-           Extra safe mobile size.
-           It can NEVER become a giant
-           overflowing desktop heading.
+          The key mobile fix.
+          It scales with screen width.
         */
 
         font-size:
             clamp(
-                1.9rem,
-                11.5vw,
-                4.2rem
+                1.72rem,
+                10.8vw,
+                4rem
             );
-
-        letter-spacing:
-            .015em;
 
         line-height:
             1.05;
 
-        padding:
-            0 2px;
+        letter-spacing:
+            .01em;
+
+        overflow-wrap:
+            normal;
 
     }
 
@@ -2461,24 +2558,13 @@ footer strong{
     .master-sub{
 
         margin-top:
-            18px;
+            17px;
 
         font-size:
-            .49rem;
+            .47rem;
 
         letter-spacing:
-            .07em;
-
-        line-height:
-            1.6;
-
-    }
-
-
-    .master-owner{
-
-        font-size:
-            .55rem;
+            .06em;
 
         line-height:
             1.7;
@@ -2486,11 +2572,21 @@ footer strong{
     }
 
 
-    /* TOP */
+    .master-owner{
+
+        font-size:
+            .53rem;
+
+        line-height:
+            1.7;
+
+    }
+
 
     #top{
 
-        right:10px;
+        right:
+            10px;
 
         bottom:
             calc(
@@ -2498,8 +2594,11 @@ footer strong{
                 env(safe-area-inset-bottom)
             );
 
-        width:39px;
-        height:39px;
+        width:
+            39px;
+
+        height:
+            39px;
 
     }
 
@@ -2507,10 +2606,10 @@ footer strong{
 
 
 /* =========================================================
-   SMALL PHONES
+   VERY SMALL PHONES
 ========================================================= */
 
-@media(max-width:370px){
+@media(max-width:360px){
 
     .nav-links a{
 
@@ -2518,31 +2617,31 @@ footer strong{
             7px 5px;
 
         font-size:
-            .55rem;
+            .54rem;
 
     }
 
 
-    .hero h1{
+    .hero-title{
 
         font-size:
-            2.5rem;
+            2.38rem;
 
     }
 
 
-    .profile-stage{
+    .visual{
 
         width:
-            275px;
+            270px;
 
     }
 
 
-    .float-card{
+    .float{
 
         transform:
-            scale(.86);
+            scale(.82);
 
     }
 
@@ -2550,7 +2649,7 @@ footer strong{
     .mastermind{
 
         font-size:
-            1.72rem;
+            1.55rem;
 
     }
 
@@ -2558,7 +2657,7 @@ footer strong{
     .master-sub{
 
         font-size:
-            .44rem;
+            .42rem;
 
     }
 
@@ -2621,7 +2720,13 @@ footer strong{
      BACKGROUND
 ======================================================= -->
 
-<div class="background">
+<div class="bg">
+
+    <div class="bg-orb red"></div>
+
+    <div class="bg-orb blue"></div>
+
+    <div class="bg-orb purple"></div>
 
     <div class="stars"></div>
 
@@ -2638,18 +2743,22 @@ footer strong{
 
 
 <!-- =======================================================
-     NAV
+     NAVIGATION
 ======================================================= -->
 
-<nav id="navbar">
+<nav
+    class="navbar"
+    id="navbar"
+>
 
     <div class="nav-inner">
 
+
         <a
             href="#home"
-            class="logo"
+            class="brand"
         >
-            <span>O</span>MAR
+            <i>O</i>MAR
         </a>
 
 
@@ -2676,6 +2785,7 @@ footer strong{
 
         </div>
 
+
     </div>
 
 </nav>
@@ -2695,142 +2805,161 @@ footer strong{
     id="home"
 >
 
-    <div class="hero-grid">
+    <div class="container">
+
+        <div class="hero-grid">
 
 
-        <div class="hero-content">
+            <div class="hero-copy">
 
 
-            <div class="owner reveal">
+                <div class="owner-badge reveal">
 
-                ✦ Owner Of
+                    ✦ Owner Of
 
-                <strong>
-                    CRACKER'S
-                </strong>
-
-            </div>
-
-
-            <h1 class="reveal">
-
-                <span>
-                    Sanaul
-                </span>
-
-                <span class="second gradient">
-                    Haque Omar.
-                </span>
-
-            </h1>
-
-
-            <div class="hero-role reveal">
-
-                Student
-
-                <span> • </span>
-
-                <b
-                    class="typing"
-                    id="typing"
-                ></b>
-
-                <span class="cursor"></span>
-
-            </div>
-
-
-            <p class="hero-description reveal">
-
-                I build digital experiences with
-                code, creativity and curiosity.
-
-            </p>
-
-
-            <div class="hero-buttons reveal">
-
-                <a
-                    href="#about"
-                    class="btn primary"
-                >
-                    Explore Portfolio
-                    <span>↗</span>
-                </a>
-
-
-                <a
-                    href="#connect"
-                    class="btn secondary"
-                >
-                    Connect With Me
-                </a>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- PROFILE -->
-
-        <div class="profile-stage reveal">
-
-
-            <div class="profile-glow"></div>
-
-
-            <div class="orbit orbit1"></div>
-
-            <div class="orbit orbit2"></div>
-
-            <div class="orbit orbit3"></div>
-
-
-            <div class="profile-ring">
-
-                <div class="profile-inner">
-
-                    <img
-                        src="profile.jpg"
-                        alt="Sanaul Haque Omar"
-                    >
+                    <strong>
+                        CRACKER'S
+                    </strong>
 
                 </div>
 
+
+                <h1
+                    class="hero-title reveal"
+                >
+
+                    <span class="line">
+                        Sanaul
+                    </span>
+
+                    <span
+                        class="line accent"
+                    >
+                        Haque Omar.
+                    </span>
+
+                </h1>
+
+
+                <div class="hero-role reveal">
+
+                    Student
+                    <span> • </span>
+
+                    <strong
+                        class="typing"
+                        id="typing"
+                    ></strong>
+
+                    <span class="cursor"></span>
+
+                </div>
+
+
+                <p
+                    class="hero-description reveal"
+                >
+
+                    I build digital experiences
+                    with code, creativity and curiosity.
+
+                </p>
+
+
+                <div
+                    class="hero-actions reveal"
+                >
+
+                    <a
+                        href="#about"
+                        class="button primary"
+                    >
+                        Explore Portfolio
+                        <span>↗</span>
+                    </a>
+
+
+                    <a
+                        href="#connect"
+                        class="button secondary"
+                    >
+                        Connect With Me
+                    </a>
+
+                </div>
+
+
             </div>
 
 
-            <div class="float-card float1">
+            <!-- PROFILE -->
 
-                <strong>
-                    ⚡ Programmer
-                </strong>
+            <div
+                class="visual reveal"
+            >
 
-                Code & Logic
-
-            </div>
+                <div class="visual-glow"></div>
 
 
-            <div class="float-card float2">
+                <div class="orbit one"></div>
 
-                <strong>
-                    🔴 CRACKER'S
-                </strong>
+                <div class="orbit two"></div>
 
-                Owner & Creator
-
-            </div>
+                <div class="orbit three"></div>
 
 
-            <div class="float-card float3">
+                <div class="avatar-ring">
 
-                <strong>
-                    🔵 Web Developer
-                </strong>
+                    <div class="avatar">
 
-                Digital Experience
+                        <img
+                            src="profile.jpg"
+                            alt="Sanaul Haque Omar"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="float red"
+                >
+
+                    <strong>
+                        🔴 Programmer
+                    </strong>
+
+                    Code & Logic
+
+                </div>
+
+
+                <div
+                    class="float blue"
+                >
+
+                    <strong>
+                        🔵 CRACKER'S
+                    </strong>
+
+                    Owner & Creator
+
+                </div>
+
+
+                <div
+                    class="float bottom"
+                >
+
+                    <strong>
+                        ⚡ Web Developer
+                    </strong>
+
+                    Digital Experience
+
+                </div>
+
 
             </div>
 
@@ -2842,116 +2971,139 @@ footer strong{
 </section>
 
 
-<!-- ABOUT -->
+<!-- =======================================================
+     ABOUT
+======================================================= -->
 
 <section
     class="section"
     id="about"
 >
 
-
-    <div class="section-head reveal">
-
-        <div class="eyebrow">
-            About Me
-        </div>
-
-        <h2>
-            More Than Just Code.
-        </h2>
-
-        <p>
-            Student. Programmer. Creator.
-            Always learning something new.
-        </p>
-
-    </div>
+    <div class="container">
 
 
-    <div class="about-grid">
+        <div class="section-center">
 
+            <div class="eyebrow reveal">
+                About Me
+            </div>
 
-        <div class="glass reveal">
+            <h2
+                class="section-title reveal"
+            >
+                More Than Just Code.
+            </h2>
 
-            <h3>
-                The Person Behind The Screen
-            </h3>
-
-            <p>
-                I'm Sanaul Haque Omar, a student,
-                programmer and web developer from
-                Gazipur, Dhaka, Bangladesh.
-            </p>
-
-            <br>
-
-            <p>
-                I enjoy creating websites, experimenting
-                with digital projects and solving
-                interesting problems through technology.
+            <p
+                class="section-description reveal"
+            >
+                Student. Programmer. Creator.
+                Always learning something new.
             </p>
 
         </div>
 
 
-        <div class="glass reveal">
-
-            <h3>
-                Personal Information
-            </h3>
+        <div class="about-grid"
+             style="margin-top:40px;">
 
 
-            <div class="info-row">
+            <div class="glass reveal">
 
-                <span>Name</span>
+                <h3>
+                    The Person Behind The Screen
+                </h3>
 
-                <span>
-                    Sanaul Haque Omar
-                </span>
+                <p>
+                    I'm Sanaul Haque Omar, a student,
+                    programmer and web developer from
+                    Gazipur, Dhaka, Bangladesh.
+                </p>
 
-            </div>
+                <br>
 
-
-            <div class="info-row">
-
-                <span>Role</span>
-
-                <span>
-                    Student / Programmer
-                </span>
-
-            </div>
-
-
-            <div class="info-row">
-
-                <span>Location</span>
-
-                <span>
-                    Gazipur, Dhaka
-                </span>
+                <p>
+                    I enjoy creating websites,
+                    experimenting with digital projects
+                    and solving interesting problems
+                    through technology.
+                </p>
 
             </div>
 
 
-            <div class="info-row">
+            <div class="glass reveal">
 
-                <span>Brand</span>
-
-                <span>
-                    CRACKER'S
-                </span>
-
-            </div>
+                <h3>
+                    Personal Information
+                </h3>
 
 
-            <div class="info-row">
+                <div class="info-row">
 
-                <span>Mindset</span>
+                    <span>
+                        Name
+                    </span>
 
-                <span>
-                    Think • Create • Build
-                </span>
+                    <span>
+                        Sanaul Haque Omar
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Role
+                    </span>
+
+                    <span>
+                        Student / Programmer
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Location
+                    </span>
+
+                    <span>
+                        Gazipur, Dhaka
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Brand
+                    </span>
+
+                    <span>
+                        CRACKER'S
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Mindset
+                    </span>
+
+                    <span>
+                        Think • Create • Build
+                    </span>
+
+                </div>
+
 
             </div>
 
@@ -2963,170 +3115,190 @@ footer strong{
 </section>
 
 
-<!-- SKILLS -->
+<!-- =======================================================
+     SKILLS
+======================================================= -->
 
 <section
     class="section"
     id="skills"
 >
 
-
-    <div class="section-head reveal">
-
-        <div class="eyebrow">
-            What I Do
-        </div>
-
-        <h2>
-            Skills & Interests
-        </h2>
-
-        <p>
-            Technology, creativity and
-            problem solving through code.
-        </p>
-
-    </div>
+    <div class="container">
 
 
-    <div class="skills">
+        <div class="section-center">
 
-
-        <div class="skill reveal">
-
-            <div class="skill-icon">
-                ⌘
+            <div class="eyebrow reveal">
+                What I Do
             </div>
 
-            <h3>
-                Professional Programmer
-            </h3>
+            <h2
+                class="section-title reveal"
+            >
+                Skills & Interests
+            </h2>
 
-            <p>
-                Logic • Code • Systems
+            <p
+                class="section-description reveal"
+            >
+                Technology, creativity and
+                problem solving through code.
             </p>
 
         </div>
 
 
-        <div class="skill reveal">
+        <div
+            class="skills"
+            style="margin-top:40px;"
+        >
 
-            <div class="skill-icon">
-                ◈
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    ⌘
+                </div>
+
+                <h3>
+                    Professional Programmer
+                </h3>
+
+                <p>
+                    Logic • Code • Systems
+                </p>
+
             </div>
 
-            <h3>
-                Web Developer
-            </h3>
 
-            <p>
-                Web • UI • Experience
-            </p>
+            <div class="skill reveal">
 
-        </div>
+                <div class="skill-icon">
+                    ◈
+                </div>
 
+                <h3>
+                    Web Developer
+                </h3>
 
-        <div class="skill reveal">
+                <p>
+                    Web • UI • Experience
+                </p>
 
-            <div class="skill-icon">
-                ✦
             </div>
 
-            <h3>
-                Problem Solving
-            </h3>
 
-            <p>
-                Think • Analyze • Solve
-            </p>
+            <div class="skill reveal">
 
-        </div>
+                <div class="skill-icon">
+                    ✦
+                </div>
 
+                <h3>
+                    Problem Solving
+                </h3>
 
-        <div class="skill reveal">
+                <p>
+                    Think • Analyze • Solve
+                </p>
 
-            <div class="skill-icon">
-                ⚡
             </div>
 
-            <h3>
-                Digital Projects
-            </h3>
 
-            <p>
-                Create • Experiment • Build
-            </p>
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Digital Projects
+                </h3>
+
+                <p>
+                    Create • Experiment • Build
+                </p>
+
+            </div>
+
 
         </div>
-
 
     </div>
 
 </section>
 
 
-<!-- CONNECT -->
+<!-- =======================================================
+     CONNECT
+======================================================= -->
 
 <section
     class="section"
     id="connect"
 >
 
+    <div class="container">
 
-    <div class="connect reveal">
+
+        <div
+            class="connect-box reveal"
+        >
+
+            <div class="eyebrow">
+                Let's Connect
+            </div>
 
 
-        <div class="eyebrow">
-            Let's Connect
+            <h2>
+                Let's Build Something.
+            </h2>
+
+
+            <p>
+                Want to connect, collaborate or
+                simply say hello?
+            </p>
+
+
+            <div class="socials">
+
+
+                <a
+                    class="social"
+                    href="https://www.facebook.com/doo.x.diee"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Facebook
+                </a>
+
+
+                <a
+                    class="social"
+                    href="https://www.instagram.com/do_x_die"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+
+                <a
+                    class="social"
+                    href="https://github.com/69mastermind69"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+
+            </div>
+
+
         </div>
-
-
-        <h2>
-            Let's Build Something.
-        </h2>
-
-
-        <p>
-            Want to connect, collaborate or
-            simply say hello?
-        </p>
-
-
-        <div class="socials">
-
-
-            <a
-                class="social"
-                href="https://www.facebook.com/doo.x.diee"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Facebook
-            </a>
-
-
-            <a
-                class="social"
-                href="https://www.instagram.com/do_x_die"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Instagram
-            </a>
-
-
-            <a
-                class="social"
-                href="https://github.com/69mastermind69"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
-
-
-        </div>
-
 
     </div>
 
@@ -3137,8 +3309,9 @@ footer strong{
      MASTERMIND
 ======================================================= -->
 
-<section class="mastermind-section">
-
+<section
+    class="mastermind-area"
+>
 
     <div class="master-label">
         The Mind Behind The Code
@@ -3171,14 +3344,15 @@ footer strong{
 
     </div>
 
-
 </section>
 
 
 </main>
 
 
-<!-- FOOTER -->
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
@@ -3197,7 +3371,9 @@ footer strong{
 </footer>
 
 
-<!-- TOP -->
+<!-- =======================================================
+     BACK TO TOP
+======================================================= -->
 
 <button
     id="top"
@@ -3210,7 +3386,7 @@ footer strong{
 <script>
 
 /* =========================================================
-   TYPING
+   TYPING EFFECT
 ========================================================= */
 
 const typing =
@@ -3220,21 +3396,29 @@ const typing =
 if(typing){
 
     const roles = [
+
         "Programmer",
+
         "Web Developer",
+
         "Digital Creator",
+
         "Problem Solver"
+
     ];
 
-    let roleIndex = 0;
-    let charIndex = 0;
+
+    let role = 0;
+
+    let char = 0;
+
     let deleting = false;
 
 
     function type(){
 
         const word =
-            roles[roleIndex];
+            roles[role];
 
 
         if(!deleting){
@@ -3242,15 +3426,14 @@ if(typing){
             typing.textContent =
                 word.substring(
                     0,
-                    charIndex + 1
+                    char + 1
                 );
 
-            charIndex++;
+            char++;
 
 
             if(
-                charIndex ===
-                word.length
+                char === word.length
             ){
 
                 deleting = true;
@@ -3269,19 +3452,19 @@ if(typing){
             typing.textContent =
                 word.substring(
                     0,
-                    charIndex - 1
+                    char - 1
                 );
 
-            charIndex--;
+            char--;
 
 
-            if(charIndex === 0){
+            if(char === 0){
 
                 deleting = false;
 
-                roleIndex =
+                role =
                     (
-                        roleIndex + 1
+                        role + 1
                     )
                     % roles.length;
 
@@ -3292,7 +3475,7 @@ if(typing){
 
         setTimeout(
             type,
-            deleting ? 45 : 80
+            deleting ? 42 : 78
         );
 
     }
@@ -3304,7 +3487,7 @@ if(typing){
 
 
 /* =========================================================
-   NAV
+   NAVBAR
 ========================================================= */
 
 const navbar =
@@ -3332,7 +3515,7 @@ window.addEventListener(
 
 
 /* =========================================================
-   PROGRESS
+   PROGRESS BAR
 ========================================================= */
 
 const progress =
@@ -3352,7 +3535,7 @@ window.addEventListener(
             window.innerHeight;
 
 
-        const amount =
+        const percent =
             total > 0
             ?
             (
@@ -3364,7 +3547,7 @@ window.addEventListener(
 
 
         progress.style.width =
-            amount + "%";
+            percent + "%";
 
     },
     {
@@ -3374,7 +3557,7 @@ window.addEventListener(
 
 
 /* =========================================================
-   REVEAL
+   SCROLL REVEAL
 ========================================================= */
 
 const reveals =
@@ -3388,7 +3571,7 @@ if(
     in window
 ){
 
-    const observer =
+    const revealObserver =
         new IntersectionObserver(
             entries => {
 
@@ -3403,9 +3586,10 @@ if(
                                 .classList
                                 .add("visible");
 
-                            observer.unobserve(
-                                entry.target
-                            );
+                            revealObserver
+                                .unobserve(
+                                    entry.target
+                                );
 
                         }
 
@@ -3415,6 +3599,7 @@ if(
             },
             {
                 threshold:.08,
+
                 rootMargin:
                     "0px 0px -25px 0px"
             }
@@ -3423,7 +3608,9 @@ if(
 
     reveals.forEach(
         element =>
-            observer.observe(element)
+            revealObserver.observe(
+                element
+            )
     );
 
 
@@ -3440,7 +3627,7 @@ if(
 
 
 /* =========================================================
-   ACTIVE NAV
+   ACTIVE NAVIGATION
 ========================================================= */
 
 const sections =
@@ -3535,7 +3722,7 @@ window.addEventListener(
 
             topButton.classList.toggle(
                 "show",
-                window.scrollY > 500
+                window.scrollY > 450
             );
 
         }
@@ -3554,8 +3741,11 @@ if(topButton){
         () => {
 
             window.scrollTo({
+
                 top:0,
+
                 behavior:"smooth"
+
             });
 
         }
@@ -3565,8 +3755,8 @@ if(topButton){
 
 
 /* =========================================================
-   DESKTOP ONLY TILT
-   Disabled completely on touch/mobile.
+   DESKTOP TILT
+   Only activates on mouse devices.
 ========================================================= */
 
 const desktop =
@@ -3582,6 +3772,7 @@ if(desktop){
         .querySelectorAll(".skill")
         .forEach(card => {
 
+
             card.addEventListener(
                 "mousemove",
                 event => {
@@ -3591,46 +3782,40 @@ if(desktop){
 
 
                     const x =
-                        event.clientX
-                        -
+                        event.clientX -
                         rect.left;
 
 
                     const y =
-                        event.clientY
-                        -
+                        event.clientY -
                         rect.top;
 
 
-                    const rotateX =
+                    const rx =
                         (
                             y /
-                            rect.height
-                            -
+                            rect.height -
                             .5
-                        )
-                        * -4;
+                        ) * -4;
 
 
-                    const rotateY =
+                    const ry =
                         (
                             x /
-                            rect.width
-                            -
+                            rect.width -
                             .5
-                        )
-                        * 4;
+                        ) * 4;
 
 
                     card.style.transform =
                         "perspective(700px)" +
                         " rotateX(" +
-                        rotateX +
+                        rx +
                         "deg)" +
                         " rotateY(" +
-                        rotateY +
+                        ry +
                         "deg)" +
-                        " translateY(-4px)";
+                        " translateY(-5px)";
 
                 }
             );
@@ -3646,23 +3831,25 @@ if(desktop){
                 }
             );
 
+
         });
 
 }
 
 
 /* =========================================================
-   TOUCH FRIENDLY
+   MOBILE TOUCH FEEDBACK
 ========================================================= */
 
 if(!desktop){
 
     document
         .querySelectorAll(
-            ".skill,.social,.btn"
+            ".skill,.social,.button"
         )
         .forEach(
             element => {
+
 
                 element.addEventListener(
                     "touchstart",
@@ -3690,6 +3877,7 @@ if(!desktop){
                         passive:true
                     }
                 );
+
 
             }
         );
